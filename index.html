@@ -1,31 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>mpe Daily Briefing</title>
-<style>
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #0f0f0f; color: #e0e0e0; }
-  h1 { color: #fff; border-bottom: 2px solid #333; padding-bottom: 12px; }
-  .date { color: #888; font-size: 0.9em; margin-top: -10px; margin-bottom: 30px; }
-  .section { margin-bottom: 36px; }
-  .section h2 { color: #4da6ff; font-size: 1.1em; letter-spacing: 0.05em; text-transform: uppercase; }
-  .story { background: #1a1a1a; border-left: 3px solid #4da6ff; padding: 14px 16px; margin-bottom: 14px; border-radius: 4px; }
-  .story h3 { margin: 0 0 6px; font-size: 1em; color: #fff; }
-  .story p { margin: 0 0 8px; color: #bbb; font-size: 0.9em; line-height: 1.5; }
-  .story a { color: #4da6ff; text-decoration: none; font-size: 0.85em; }
-  .story a:hover { text-decoration: underline; }
-  .signal { background: #1a2a1a; border-left: 3px solid #4dff88; padding: 14px 16px; border-radius: 4px; margin-top: 30px; }
-  .signal h2 { color: #4dff88; margin: 0 0 8px; font-size: 0.9em; letter-spacing: 0.1em; text-transform: uppercase; }
-  .signal p { margin: 0; color: #ccc; }
-  .placeholder { color: #555; text-align: center; padding: 60px 20px; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>☀️ mpe Daily Briefing — April 6, 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0f0f;
+      --surface: #181818;
+      --surface2: #222222;
+      --border: #2a2a2a;
+      --text: #e8e8e8;
+      --muted: #888888;
+      --accent: #4f9cf9;
+      --accent2: #7c5cbf;
+      --green: #3ecf8e;
+      --yellow: #f5c842;
+      --red: #f05252;
+      --radius: 10px;
+      --gap: 1.5rem;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      padding: 0 0 4rem;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, #111827 0%, #1a1035 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 1.5rem 2rem;
+      text-align: center;
+    }
+    header .badge {
+      display: inline-block;
+      background: rgba(79,156,249,0.12);
+      border: 1px solid rgba(79,156,249,0.3);
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.75rem;
+      border-radius: 99px;
+      margin-bottom: 1rem;
+    }
+    header h1 {
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+    header .date {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
+      font-weight: 500;
+    }
+
+    /* ── LAYOUT ── */
+    main {
+      max-width: 820px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.25rem;
+    }
+
+    /* ── SECTION ── */
+    section {
+      margin-bottom: 2.5rem;
+    }
+    section h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+    section h2 .emoji {
+      font-style: normal;
+      margin-right: 0.4rem;
+    }
+
+    /* ── STORY CARD ── */
+    .story {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.25rem;
+      margin-bottom: 0.85rem;
+      transition: border-color 0.15s;
+    }
+    .story:hover { border-color: #3a3a3a; }
+
+    .story h3 {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .story p {
+      font-size: 0.88rem;
+      color: #bbb;
+      margin-bottom: 0.5rem;
+    }
+
+    .story .why {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-style: italic;
+      border-left: 2px solid var(--border);
+      padding-left: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+    .story .why strong {
+      color: #a0a0a0;
+      font-style: normal;
+    }
+
+    .story a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .story a:hover { text-decoration: underline; }
+    .story a::after { content: '→'; font-size: 0.75rem; }
+
+    /* ── SIGNAL BOX ── */
+    .signal {
+      background: linear-gradient(135deg, #1a1035 0%, #0f1f2e 100%);
+      border: 1px solid rgba(124,92,191,0.4);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.5rem 1.25rem;
+      margin-top: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .signal::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+    }
+    .signal h2 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 0.75rem;
+    }
+    .signal h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 0.6rem;
+    }
+    .signal p {
+      font-size: 0.88rem;
+      color: #c0c0c0;
+      line-height: 1.6;
+    }
+    .signal .takeaway {
+      margin-top: 0.9rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text); }
+
+    /* ── PILL TAGS ── */
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.1rem 0.5rem;
+      border-radius: 99px;
+      margin-right: 0.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .tag-red { background: rgba(240,82,82,0.15); color: var(--red); }
+    .tag-green { background: rgba(62,207,142,0.12); color: var(--green); }
+    .tag-yellow { background: rgba(245,200,66,0.12); color: var(--yellow); }
+    .tag-blue { background: rgba(79,156,249,0.12); color: var(--accent); }
+
+    @media (max-width: 540px) {
+      header { padding: 2rem 1rem 1.5rem; }
+      .story { padding: 0.9rem 1rem; }
+    }
+  </style>
 </head>
 <body>
-<h1>☀️ mpe Daily Briefing</h1>
-<p class="date">Your briefing will appear here each morning at 8:00 AM Madrid time.</p>
-<div class="placeholder">
-  <p>⏳ First briefing coming tomorrow morning...</p>
-</div>
+
+<header>
+  <div class="badge">Intelligence Brief</div>
+  <h1>☀️ mpe Daily Briefing</h1>
+  <div class="date">Monday, April 6, 2026</div>
+</header>
+
+<main>
+
+  <!-- ── 1. CREATOR ECONOMY ── -->
+  <section>
+    <h2><span class="emoji">🎥</span>Creator Economy &amp; Platforms</h2>
+
+    <div class="story">
+      <span class="tag tag-red">Copyright</span>
+      <h3>YouTube Accepted a Copyright Claim on a Musician Playing Public Domain Songs</h3>
+      <p>Singer-songwriter Murphy Campbell had her YouTube videos flagged by distributor Vydia for performing traditional public domain ballads she clearly owns. After the video claims were rescinded, Meta then removed her Instagram and Facebook posts <em>about the incident</em> — also for alleged copyright infringement. Neither Meta nor Vydia explained the takedowns.</p>
+      <p class="why"><strong>Why it matters:</strong> Platform copyright enforcement is increasingly automated and accountable to no one. Creators distributing through middlemen like Vydia carry real silent risk — one bad actor in your stack can nuke your whole presence. Something hatchet.cool should surface as creator risk data.</p>
+      <a href="https://www.theverge.com/policy" target="_blank" rel="noopener">Read more</a>
+    </div>
+
+    <div class="story">
+      <span class="tag tag-yellow">AI</span>
+      <h3>Human Creators Demand an 'AI-Free' Label — But Can't Agree on One</h3>
+      <p>A coalition of artists and writers is pushing platforms and marketers to adopt a standard "human-made" label for creative work, signaling that AI saturation is real enough to prompt a counter-branding movement. The problem: no single standard has emerged, fragmenting the effort before it gains traction.</p>
+      <p class="why"><strong>Why it matters:</strong> Brands are already paying premiums for verified human creativity. A fragmented labeling landscape creates an opportunity for platforms that authenticate creator identity — exactly the kind of trust layer hatchet.cool can provide in influencer discovery.</p>
+      <a href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" rel="noopener">Read more</a>
+    </div>
+
+    <div class="story">
+      <span class="tag tag-blue">Platforms</span>
+      <h3>HYBE (BTS Parent) Brings On Former Disney &amp; TikTok Executive Kevin Mayer</h3>
+      <p>K-pop giant HYBE has appointed Kevin Mayer — who led TikTok's explosive Western expansion and previously ran Disney's streaming division — to advise its westward push toward Western digital consumers. Mayer brings deep relationships at both the platform and brand levels.</p>
+      <p class="why"><strong>Why it matters:</strong> When HYBE and someone with Mayer's rolodex move into digital creator monetization, the game gets more sophisticated. Expect more K-pop infrastructure thinking (data-driven fan engagement, digital merch, exclusive content tiers) applied to Western creator models.</p>
+      <a href="https://www.tubefilter.com/2026/04/03/hybe-bts-label-appoints-kevin-mayer-board/" target="_blank" rel="noopener">Read more</a>
+    </div>
+  </section>
+
+  <!-- ── 2. GAMING ── -->
+  <section>
+    <h2><span class="emoji">🎮</span>Gaming Industry</h2>
+
+    <div class="story">
+      <span class="tag tag-red">Layoffs</span>
+      <h3>Take-Two Cuts Its Entire AI Team — Head of AI Announces Departure on LinkedIn</h3>
+      <p>Take-Two Interactive laid off Luke Dicken, its Head of AI, along with his full team. Dicken confirmed on LinkedIn that "the team's time has come to an end," ending what had been a high-profile initiative following his tenure as Senior Director of Applied AI at Take-Two's Zynga subsidiary.</p>
+      <p class="why"><strong>Why it matters:</strong> The biggest publishers are pulling back on internal AI research theater and shifting to targeted acquisitions or licensing. Gaming AI is consolidating — which means esports analytics and creator-facing tools built on AI (like hatchet.cool) face less internal competition but more platform dependency.</p>
+      <a href="https://www.gamedeveloper.com/business/report-take-two-lays-off-the-head-of-ai-and-unknown-number-of-team-members" target="_blank" rel="noopener">Read more</a>
+    </div>
+
+    <div class="story">
+      <span class="tag tag-green">Acquisition</span>
+      <h3>PlayStation Acquires Cinemersive Labs, a Machine Learning &amp; Computer Vision Studio</h3>
+      <p>Sony Interactive Entertainment has acquired Cinemersive Labs, whose team will join SIE's Visual Computing Group. Sony says the team will "contribute to advancing state-of-the-art visual computing within games." Deal terms were not disclosed.</p>
+      <p class="why"><strong>Why it matters:</strong> PlayStation is buying AI capability, not building it. This is the smarter play post-2025 layoff wave — and it signals that visual AI (not language AI) is where gaming investment is going next. Esports broadcast and highlight analysis tools fit squarely in this trajectory.</p>
+      <a href="https://sonyinteractive.com/en/news/blog/sony-interactive-entertainment-acquires-cinemersive-labs/" target="_blank" rel="noopener">Read more</a>
+    </div>
+
+    <div class="story">
+      <span class="tag tag-blue">Cloud Gaming</span>
+      <h3>EA Sports FC 26 Lands on Amazon Luna for Prime Subscribers at No Extra Cost</h3>
+      <p>Amazon is now bundling EA Sports FC 26 via its Luna cloud gaming service as a perk for Prime subscribers, significantly expanding the game's casual reach beyond console buyers. The move represents Amazon's renewed push on cloud gaming after Luna's 2025 relaunch.</p>
+      <p class="why"><strong>Why it matters:</strong> Sports gaming going "Prime-included" accelerates casual player growth and expands the fan/creator crossover audience. More casual football fans = larger top-of-funnel for football content creators. Relevant for gaming creator analytics.</p>
+      <a href="https://www.theverge.com/games" target="_blank" rel="noopener">Read more</a>
+    </div>
+  </section>
+
+  <!-- ── 3. AI IN MARKETING ── -->
+  <section>
+    <h2><span class="emoji">🤖</span>AI in Marketing</h2>
+
+    <div class="story">
+      <span class="tag tag-yellow">GEO</span>
+      <h3>Time Magazine Turns AI Visibility Data Into a Branded Content Product</h3>
+      <p>Time is commercializing its insights into Generative Engine Optimization (GEO) — how brands appear inside AI-generated answers — as a new paid product for advertisers. The offering helps brands shape how they're described and recommended when users ask AI chatbots questions in their category.</p>
+      <p class="why"><strong>Why it matters:</strong> Brands are starting to pay for AI presence the way they once paid for SEO. Creator-brand partnerships are a key input into AI training data — influencers who produce high-quality, frequently cited content will increasingly drive GEO for their brand partners. This is emerging alpha for hatchet.cool's value prop.</p>
+      <a href="https://digiday.com/media/time-pitches-geo-insights-into-a-new-brand-offering/" target="_blank" rel="noopener">Read more</a>
+    </div>
+
+    <div class="story">
+      <span class="tag tag-red">AI Quality</span>
+      <h3>AI-Generated 'Expert Reviews' Were a Flop With Both Users and Actual Experts</h3>
+      <p>A product that automatically generated "expert reviews" using AI struggled to gain traction: users found them generic and untrustworthy, while domain experts resented being mimicked without consent. The experiment highlights the ongoing authenticity gap in AI-generated marketing content.</p>
+      <p class="why"><strong>Why it matters:</strong> Automated AI influencer/review content keeps failing in real-world brand contexts. The market repeatedly validates that authentic creator voices outperform generated substitutes — directly supporting the case for human creator discovery and analytics tools.</p>
+      <a href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" rel="noopener">Read more</a>
+    </div>
+
+    <div class="story">
+      <span class="tag tag-green">Ad Tech</span>
+      <h3>Publishers Report Double-Digit Growth From The Trade Desk's OpenPath Integration</h3>
+      <p>Multiple publishers told Digiday they're seeing double-digit revenue growth from The Trade Desk's OpenPath direct-supply integration. TTD is temporarily allowing duplicate bidding as a sweetener for new onboarders, creating a short window of outsized yield for early integrators.</p>
+      <p class="why"><strong>Why it matters:</strong> The programmatic supply chain continues to shift toward fewer, higher-trust pipes. Influencer marketing is next — brands want the same direct, verifiable supply chains for creator inventory that OpenPath provides for display. Hatchet.cool sits right in this trust layer.</p>
+      <a href="https://digiday.com/media/publishers-see-double-digit-growth-from-ttds-openpath-but-volatility-remains/" target="_blank" rel="noopener">Read more</a>
+    </div>
+  </section>
+
+  <!-- ── 4. M&A ── -->
+  <section>
+    <h2><span class="emoji">💰</span>M&amp;A ($1–50M Range)</h2>
+
+    <div class="story">
+      <span class="tag tag-green">Acquisition</span>
+      <h3>PlayStation / Cinemersive Labs: Gaming's AI M&A Playbook Sharpens</h3>
+      <p>While PlayStation's Cinemersive Labs deal is likely above the $50M range (undisclosed), it confirms the strategic template: established publishers are acquiring small, specialized AI/ML shops rather than building internally. Visual computing, analytics, and engagement tooling are the hottest targets.</p>
+      <p class="why"><strong>Why it matters:</strong> Gaming-adjacent AI analytics companies — especially those with proprietary data on creator or player behavior — are exactly what publishers want to buy. Build something they need, make the data moat obvious, and you're on their shortlist.</p>
+      <a href="https://sonyinteractive.com/en/news/blog/sony-interactive-entertainment-acquires-cinemersive-labs/" target="_blank" rel="noopener">Read more</a>
+    </div>
+
+    <div class="story">
+      <span class="tag tag-red">Security</span>
+      <h3>Mercor Data Breach Exposes AI Training Industry Risk — Meta Pauses Partnership</h3>
+      <p>Mercor, a company that staffs and manages AI training data annotation projects, was hit by a security breach exposing potentially sensitive industry data. Meta has paused its work with Mercor while OpenAI investigates. The breach signals systemic risk in the fast-scaling AI data supply chain.</p>
+      <p class="why"><strong>Why it matters:</strong> The creator-data-AI pipeline is increasingly lucrative and increasingly targeted. Any platform handling creator identity and engagement data (like hatchet.cool) needs to treat security as a product feature, not an afterthought — it's becoming table stakes for enterprise contracts.</p>
+      <a href="https://www.wired.com/story/meta-pauses-work-with-mercor-after-data-breach-puts-ai-industry-secrets-at-risk/" target="_blank" rel="noopener">Read more</a>
+    </div>
+  </section>
+
+  <!-- ── 5. US MARKET ── -->
+  <section>
+    <h2><span class="emoji">🇺🇸</span>US Market</h2>
+
+    <div class="story">
+      <span class="tag tag-green">Labor</span>
+      <h3>Writers Guild Locks In 4-Year AI Deal With Studios — Major AI Protections Included</h3>
+      <p>The WGA reached a new four-year agreement with Hollywood studios that includes significantly expanded AI protections: studios cannot use AI to write or rewrite scripts, must disclose when AI-generated material is given to writers, and writers cannot be required to use AI tools. The deal sets a benchmark for creative labor in the AI era.</p>
+      <p class="why"><strong>Why it matters:</strong> Legal precedent is forming: human authorship has contractual, not just moral, value. This shapes how brands will eventually approach creator contracts — expect influencer agreements to start incorporating AI-use disclosure clauses within 12-18 months.</p>
+      <a href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" rel="noopener">Read more</a>
+    </div>
+
+    <div class="story">
+      <span class="tag tag-yellow">AI Power</span>
+      <h3>Elon Musk Tells SpaceX IPO Advisers to Buy Grok Subscriptions — or Else</h3>
+      <p>The New York Times reports that Musk is demanding banks, law firms, and auditors working on the SpaceX IPO buy subscriptions to Grok (his AI, now technically under the SpaceX umbrella after XAI/SpaceX/X merged). The coercive tactic is drawing scrutiny as a conflicts-of-interest issue.</p>
+      <p class="why"><strong>Why it matters:</strong> The concentration of tech power in the US — where a single individual controls a major social platform, AI company, and now demands loyalty from Wall Street — is the kind of structural risk that pushes serious creator economy operators to build EU-resilient businesses.</p>
+      <a href="https://www.nytimes.com/2026/04/03/business/spacex-ipo-grok-elon-musk.html" target="_blank" rel="noopener">Read more</a>
+    </div>
+  </section>
+
+  <!-- ── 6. EU/SPAIN ── -->
+  <section>
+    <h2><span class="emoji">🇪🇺</span>Spain / EU Regulation</h2>
+
+    <div class="story">
+      <span class="tag tag-blue">DSA</span>
+      <h3>EU Commissioner Ribera Holds Firm on Tech Rules — Rejects US Trade Pressure</h3>
+      <p>After meetings with top Silicon Valley executives, EU Executive VP Teresa Ribera doubled down on Europe's digital rulebook — explicitly rejecting US demands to mix DSA/DMA enforcement with trade negotiations. "EU sovereignty" was her message; the US ambassador had been pressing for "concrete engagement" on tech rules.</p>
+      <p class="why"><strong>Why it matters:</strong> The EU is not budging. DSA enforcement timelines remain in place, and Spain (home base for many EU-headquartered creator platforms) is squarely inside this regulatory jurisdiction. Compliance isn't optional — it's a moat for EU-native platforms against US incumbents.</p>
+      <a href="https://www.politico.eu/article/ribera-emphasizes-eu-sovereignty-while-deepening-silicon-valley-ties/" target="_blank" rel="noopener">Read more</a>
+    </div>
+
+    <div class="story">
+      <span class="tag tag-yellow">Trade</span>
+      <h3>US Pressures Brussels to Join Its AI Chips Initiative — Framing It as Competition With China</h3>
+      <p>A top US official urged the EU to join a Washington-led initiative on AI chip supply chains, framing it as a choice between aligning with the US or falling behind China. Brussels has been cautious, insisting on EU strategic autonomy on semiconductor policy.</p>
+      <p class="why"><strong>Why it matters:</strong> AI infrastructure geopolitics will shape which cloud providers, compute costs, and data flows are available to European startups. EU-native SaaS tools in AI marketing could benefit long-term from EU-preferred supply chains — or face compute cost divergence from US competitors.</p>
+      <a href="https://www.politico.eu/article/us-pushes-brussels-join-ai-chips-club/" target="_blank" rel="noopener">Read more</a>
+    </div>
+
+    <div class="story">
+      <span class="tag tag-red">WTO</span>
+      <h3>Digital Tariff Deal at WTO Hits Deadlock — E-Commerce Moratorium Uncertain</h3>
+      <p>A ministerial meeting in Cameroon failed to resolve a deadlock over the WTO's longstanding moratorium on digital tariffs — meaning cross-border digital services (SaaS, streaming, creator tools) could eventually face new customs duties if the moratorium lapses. Major economies are pursuing bilateral workarounds.</p>
+      <p class="why"><strong>Why it matters:</strong> A world where digital services face tariffs would significantly complicate cross-border creator economy operations — especially any business selling SaaS to US clients from an EU base. Worth monitoring for hatchet.cool's commercial structure.</p>
+      <a href="https://www.politico.eu/article/digital-tariff-deal-deadlock-world-trade-organization-wto-reform/" target="_blank" rel="noopener">Read more</a>
+    </div>
+  </section>
+
+  <!-- ── SIGNAL OF THE DAY ── -->
+  <div class="signal">
+    <h2>⚡ Signal of the Day</h2>
+    <h3>The Human Creator Premium Is Becoming Legally Enforceable</h3>
+    <p>
+      Three stories today point at the same underlying shift: the WGA locked in contractual AI protections for writers, human creators are pushing for 'AI-free' product labels, and AI-generated Expert Reviews failed in the market. Meanwhile, YouTube's broken copyright automation is silencing real musicians playing public domain music.
+    </p>
+    <p style="margin-top: 0.6rem;">
+      The market keeps proving that authentic human creativity commands a premium — but platforms are failing to protect it. The gap between what brands want (verifiable human creators) and what platforms provide (opaque, automated systems) is widening. That gap is hatchet.cool's business.
+    </p>
+    <div class="takeaway">
+      Takeaway: If you're building creator discovery and analytics, the single most valuable thing you can add right now is verifiable human authenticity signals. That's what the WGA just got in contract form — brands will want it in their influencer contracts next.
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>Generated by mpe · <a href="https://aibit.github.io/daily-briefing" target="_blank" rel="noopener">aibit.github.io/daily-briefing</a></p>
+  <p style="margin-top: 0.3rem;">Sources: The Verge, Digiday, Tubefilter, Politico EU — April 6, 2026</p>
+</footer>
+
 </body>
 </html>
