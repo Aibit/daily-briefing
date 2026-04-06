@@ -1,404 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>☀️ mpe Daily Briefing — April 6, 2026</title>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>☀️ mpe Daily Briefing — April 6, 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --bg: #0f0f0f;
-    --surface: #181818;
-    --surface2: #222;
-    --border: #2a2a2a;
-    --text: #e8e8e8;
-    --muted: #888;
-    --accent: #4f9cf9;
-    --accent2: #a78bfa;
-    --signal: #fbbf24;
-    --signal-bg: #1a1400;
-    --red: #f87171;
-    --green: #4ade80;
-    --radius: 10px;
-    --radius-lg: 16px;
-  }
+    body {
+      background: #0f0f0f;
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      padding: 0 1rem 3rem;
+    }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    font-size: 15px;
-    line-height: 1.65;
-    padding: 0 0 60px;
-  }
+    header {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 1px solid #222;
+    }
 
-  header {
-    background: linear-gradient(135deg, #111 0%, #1a1a2e 100%);
-    border-bottom: 1px solid var(--border);
-    padding: 32px 20px 28px;
-    text-align: center;
-  }
+    header h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
 
-  header h1 {
-    font-size: clamp(1.5rem, 5vw, 2.25rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    background: linear-gradient(90deg, #fff 30%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+    header .date {
+      margin-top: 0.3rem;
+      color: #777;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
 
-  header .date {
-    margin-top: 6px;
-    color: var(--muted);
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-  .container {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 0 16px;
-  }
+    section {
+      margin-top: 2.5rem;
+    }
 
-  section {
-    margin-top: 40px;
-  }
+    section h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #1e1e1e;
+      margin-bottom: 1.25rem;
+    }
 
-  section h2 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 14px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-  }
+    .card {
+      background: #161616;
+      border: 1px solid #252525;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
 
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 18px 20px;
-    margin-bottom: 14px;
-    transition: border-color 0.2s;
-  }
+    .card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #f0f0f0;
+      margin-bottom: 0.55rem;
+      line-height: 1.4;
+    }
 
-  .card:hover {
-    border-color: #3a3a3a;
-  }
+    .card p {
+      color: #bbb;
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+    }
 
-  .card h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-    line-height: 1.4;
-    color: #f0f0f0;
-  }
+    .card .why {
+      font-style: italic;
+      color: #777;
+      font-size: 0.88rem;
+      margin-bottom: 0.7rem;
+    }
 
-  .card p {
-    color: #bbb;
-    margin-bottom: 10px;
-    font-size: 0.92rem;
-  }
+    .card .why span {
+      color: #999;
+      font-weight: 600;
+      font-style: normal;
+    }
 
-  .why {
-    font-size: 0.85rem;
-    color: var(--muted);
-    font-style: italic;
-    margin-bottom: 12px;
-    padding-left: 10px;
-    border-left: 2px solid var(--border);
-  }
+    .card a.source {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: #5b9cf6;
+      text-decoration: none;
+      margin-top: 0.25rem;
+    }
 
-  .why strong {
-    color: #aaa;
-    font-style: normal;
-  }
+    .card a.source:hover {
+      text-decoration: underline;
+    }
 
-  .read-more {
-    display: inline-block;
-    font-size: 0.82rem;
-    color: var(--accent);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-  }
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      margin: 0.75rem 0;
+    }
 
-  .read-more:hover {
-    text-decoration: underline;
-  }
+    .video-wrap iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
 
-  .video-wrap {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    border-radius: 8px;
-    margin: 0.75rem 0;
-  }
+    .signal-box {
+      background: linear-gradient(135deg, #1a1a2e 0%, #162032 100%);
+      border: 1px solid #2a3a5a;
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin-top: 2.5rem;
+    }
 
-  .video-wrap iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-  }
+    .signal-box .label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #5b9cf6;
+      margin-bottom: 0.5rem;
+    }
 
-  /* Signal of the Day */
-  .signal {
-    background: var(--signal-bg);
-    border: 1px solid #4a3800;
-    border-radius: var(--radius-lg);
-    padding: 24px 22px;
-    margin-top: 48px;
-  }
+    .signal-box h2 {
+      font-size: 1.15rem;
+      color: #fff;
+      margin-bottom: 0.6rem;
+      border: none;
+      text-transform: none;
+      letter-spacing: normal;
+      padding-bottom: 0;
+    }
 
-  .signal .signal-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--signal);
-    margin-bottom: 10px;
-  }
+    .signal-box p {
+      color: #a0b8d8;
+      font-size: 0.95rem;
+    }
 
-  .signal h2 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 10px;
-    line-height: 1.4;
-    border: none;
-    padding: 0;
-    text-transform: none;
-    letter-spacing: normal;
-  }
-
-  .signal p {
-    color: #ccc;
-    font-size: 0.92rem;
-    line-height: 1.6;
-  }
-
-  footer {
-    margin-top: 56px;
-    padding: 24px 20px;
-    text-align: center;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 0.78rem;
-    letter-spacing: 0.05em;
-  }
-
-  footer a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-
-  .tag {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 600;
-    padding: 2px 7px;
-    border-radius: 4px;
-    margin-bottom: 8px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  .tag-new { background: #162a3c; color: var(--accent); }
-  .tag-hot { background: #2a1818; color: var(--red); }
-  .tag-watch { background: #1a1f2e; color: var(--accent2); }
-
-  @media (max-width: 500px) {
-    .card { padding: 14px 15px; }
-  }
-</style>
+    footer {
+      max-width: 800px;
+      margin: 2.5rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid #1e1e1e;
+      color: #444;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  <div class="container">
-    <h1>☀️ mpe Daily Briefing</h1>
-    <p class="date">Monday, April 6 · 2026</p>
-  </div>
+  <h1>☀️ mpe Daily Briefing</h1>
+  <div class="date">Monday, April 6, 2026</div>
 </header>
 
-<div class="container">
+<main>
 
-  <!-- ===== SECTION 1: CREATOR ECONOMY ===== -->
+  <!-- ══════════════════════════════════════════════
+       1. CREATOR ECONOMY & PLATFORMS
+  ═══════════════════════════════════════════════ -->
   <section>
-    <h2>🎨 Creator Economy &amp; Platforms</h2>
+    <h2>📱 Creator Economy &amp; Platforms</h2>
 
     <div class="card">
-      <span class="tag tag-watch">Trending</span>
-      <h3>Human Creators Push for an 'AI-Free' Label — But Can't Agree on One</h3>
-      <p>The BBC has counted at least eight competing initiatives trying to establish a label that distinguishes human-made content from AI-assisted work. Experts warn that without a single standard, consumers will be confused — and the signal will be diluted. The core problem: AI is already woven into so many creative tools that drawing the line between "human" and "AI" work is genuinely hard.</p>
-      <p class="why"><strong>Why it matters:</strong> For hatchet.cool and creator discovery platforms, this debate directly shapes authenticity signals. If an industry-wide "human-made" label gains traction, it could become a key filter for brand partnerships — and a new data point platforms like hatchet need to surface.</p>
-      <a class="read-more" href="https://www.theverge.com/creators" target="_blank" rel="noopener">→ Read more (The Verge)</a>
+      <h3>YouTube Launches TV-Style 24/7 Channels for CTV — Starting with Coachella</h3>
+      <p>
+        YouTube is piloting "Coachella TV," a 24/7 streaming channel of archival and live festival content, as the first step in a broader rollout of creator-owned linear channels. The platform quietly tested the format with ~40 artists and plans to open it to all creators. YouTube is already the #1 streaming platform on TVs by watch time, per Nielsen.
+      </p>
+      <p class="why"><span>Why it matters:</span> YouTube is eating traditional TV's lunch. Creators who adapt to always-on, channel-style programming will have a new discovery surface — and brands will need different partnerships for CTV inventory. Direct relevance to hatchet.cool as creator distribution diversifies.</p>
+      <a href="https://www.socialmediatoday.com/news/youtube-experiments-with-tv-style-channels-for-ctv-viewing/816553/" class="source">→ Read more (Social Media Today)</a>
     </div>
 
     <div class="card">
-      <span class="tag tag-new">Creator Exit</span>
-      <h3>Gaming Historian Steps Away from YouTube After 15 Years and 1M+ Subscribers</h3>
-      <p>Norman Caruso (Gaming Historian), one of YouTube's most respected deep-dive gaming channels, announced his retirement. Since publishing a video on the Oregon Trail in 2024, Caruso says "the itch to make a new video never came back." As a parting gift, he's releasing rare Nintendo vs. Universal court documents — including Shigeru Miyamoto doodles — to the Internet Archive and the Video Game History Foundation.</p>
-      <p class="why"><strong>Why it matters:</strong> Burnout is ending the careers of established long-form gaming creators at scale. As the YouTube landscape shifts, there's a gap forming in high-quality, archive-grade gaming content — one that discovery platforms can help fill by surfacing the next generation of niche historians before they blow up.</p>
-      <a class="read-more" href="https://kotaku.com/youtube-gaming-historian-steps-back-after-15-years-donkey-kong-2000684905" target="_blank" rel="noopener">→ Read more (Kotaku)</a>
+      <h3>Snapchat Expands Creator Subscriptions to All Eligible Users</h3>
+      <p>
+        Snapchat has opened its Creator Subscriptions program — previously limited to Snap Stars — to all eligible creators. The feature lets fans pay for subscriber-only Stories and exclusive content, giving creators a direct monetization path on the platform. The timing mirrors moves by YouTube and TikTok to lock in creators with revenue-sharing.
+      </p>
+      <p class="why"><span>Why it matters:</span> The subscription layer is becoming table stakes across every major platform. Creator discovery tools like hatchet.cool need to track monetization tier data, not just follower counts, to assess true creator value.</p>
+      <a href="https://www.socialmediatoday.com/news/snapchat-expands-creator-subscriptions-to-all-eligible-users/816424/" class="source">→ Read more (Social Media Today)</a>
     </div>
 
+    <div class="card">
+      <h3>TikTok Partners with ACRCloud to Protect SoundOn Musicians from AI Copyright Trolls</h3>
+      <p>
+        TikTok's distribution arm SoundOn has integrated ACRCloud's Derivative Works Detection system, which can identify modified audio even after speed- or pitch-shifting — a direct countermeasure to AI-generated "covers." The move comes days after folk singer Murphy Campbell's public domain recordings were fraudulently claimed via a gap in content recognition databases.
+      </p>
+      <p class="why"><span>Why it matters:</span> AI-driven copyright abuse is a growing creator pain point. Platforms investing in audio fingerprinting raise the bar for creator trust — and signal that content authenticity infrastructure is the next big battleground.</p>
+      <a href="https://www.socialmediatoday.com/news/tiktok-and-acrcloud-partner-on-derivative-works-detection-system/816662/" class="source">→ Read more (Social Media Today)</a>
+    </div>
   </section>
 
-  <!-- ===== SECTION 2: GAMING INDUSTRY ===== -->
+  <!-- ══════════════════════════════════════════════
+       2. GAMING INDUSTRY
+  ═══════════════════════════════════════════════ -->
   <section>
     <h2>🎮 Gaming Industry</h2>
 
     <div class="card">
-      <span class="tag tag-hot">Breaking</span>
-      <h3>Amazon's Mass Effect TV Series Getting Rewrites to Appeal to "Non-Gamers"</h3>
-      <p>Amazon's new Head of Global TV Peter Friedlander — who took over in October 2025 — has requested that scripts for the Mass Effect Prime Video series be rewritten to be more accessible to non-gamers. Production is reportedly "on the verge" of starting, but the show has been in development since 2021 with scripts still not locked. The project is described as a "pricey genre drama."</p>
-      <p class="why"><strong>Why it matters:</strong> The Fallout series was a massive hit for Amazon precisely because it balanced fan service and newcomer accessibility. If Mass Effect pulls it off, it signals a new wave of gaming IP adaptations — increasing the mainstream cultural footprint of gaming and the audiences that creators in that space can reach.</p>
-      <a class="read-more" href="https://kotaku.com/mass-effect-tv-show-amazon-script-plot-2000684915" target="_blank" rel="noopener">→ Read more (Kotaku)</a>
+      <h3>Take-Two Fires Entire AI Team — Head of AI Luke Dicken Among Those Let Go</h3>
+      <p>
+        Take-Two Interactive (parent of Rockstar, Zynga, 2K) has laid off its entire AI division, including Head of AI Luke Dicken and at least six others. The team had spent 7 years building AI tools for game development workflows. This comes despite Take-Two's president having publicly declared the company is "actively embracing" generative AI just weeks ago.
+      </p>
+      <p class="why"><span>Why it matters:</span> When a major publisher guts its in-house AI team while praising GenAI externally, it signals the "build vs. buy" debate is shifting toward buy — opening the market for AI vendor tools in game dev. A canary in the coal mine for gaming AI investment priorities.</p>
+      <a href="https://www.gamedeveloper.com/business/report-take-two-lays-off-the-head-of-ai-and-unknown-number-of-team-members" class="source">→ Read more (Game Developer)</a>
     </div>
 
     <div class="card">
-      <span class="tag tag-hot">Industry</span>
-      <h3>Take-Two Lays Off Head of AI and Entire Team</h3>
-      <p>Luke Dicken, Take-Two's Head of AI, posted on LinkedIn confirming that his team's time "has come to an end." Dicken previously served as Senior Director of Applied AI at Zynga (owned by Take-Two) for two years. The layoffs come amid broader restructuring across major publishers as studios recalibrate their AI investment strategies.</p>
-      <p class="why"><strong>Why it matters:</strong> Major publishers are still figuring out where AI fits in game development. Take-Two building and then dismantling a dedicated AI team suggests the "AI in games" story is more complicated than the hype — and studios are scaling back experimental divisions in favor of shipping titles.</p>
-      <a class="read-more" href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" rel="noopener">→ Read more (The Verge)</a>
+      <h3>MechWarrior Dev Piranha Games Cuts 30% of Staff in Second Round of Layoffs</h3>
+      <p>
+        Vancouver-based Piranha Games (MechWarrior 5), owned by Enad Global 7, has confirmed cutting 30% of its staff — affecting writers, VFX artists, level designers, and engineers. It's the studio's second major restructuring since January 2025, following poor sales of MechWarrior 5: Clans. The studio says it will continue releasing DLC.
+      </p>
+      <p class="why"><span>Why it matters:</span> Mid-size studios dependent on a single IP are increasingly fragile. This is part of a broader wave of cuts at Crystal Dynamics, Epic, Ubisoft, and Coffee Stain — the gaming talent market is in structural reset, with implications for esports org staffing too.</p>
+      <a href="https://www.gamedeveloper.com/business/mechwarrior-dev-piranha-games-lays-off-30-of-staff-says-ceo" class="source">→ Read more (Game Developer)</a>
     </div>
 
     <div class="card">
-      <span class="tag tag-watch">Esports</span>
-      <h3>CoD Pro Dropped by Carolina Royal Ravens After Unsolicited DM Leak</h3>
-      <p>Dylan "Nero" Koch was released from the Carolina Royal Ravens after leaked Discord DMs showed him sending unsolicited sexual messages to another user. Koch acknowledged the messages were inappropriate, but criticized the public nature of the backlash. The Ravens released a formal statement ending his time with the team mid-season.</p>
-      <p class="why"><strong>Why it matters:</strong> Esports orgs are increasingly treating off-platform conduct as part of player contracts. For brands evaluating esports sponsorships and creator partnerships, this reinforces the need for better due-diligence tooling — exactly the kind of signals that creator analytics platforms need to track.</p>
-      <a class="read-more" href="https://kotaku.com/call-duty-sexting-leak-nero-esports-carolina-2000684923" target="_blank" rel="noopener">→ Read more (Kotaku)</a>
+      <h3>WGA Reaches 4-Year Deal with Studios — AI Protections Strengthened for Writers</h3>
+      <p>
+        The Writers Guild of America has secured a new four-year agreement with the major studios, featuring expanded protections against AI replacing or underpaying human writers. The deal includes requirements for disclosure when AI is used in development, and sets minimums that prevent studios from using AI to undercut WGA minimums.
+      </p>
+      <p class="why"><span>Why it matters:</span> The WGA deal sets a labor precedent that could ripple into game writing and narrative design unions. It also signals that "AI-assisted" and "AI-generated" will require clearer contractual definitions across creative industries.</p>
+      <a href="https://www.theverge.com/" class="source">→ Read more (The Verge)</a>
     </div>
-
   </section>
 
-  <!-- ===== SECTION 3: AI IN MARKETING ===== -->
+  <!-- ══════════════════════════════════════════════
+       3. AI IN MARKETING
+  ═══════════════════════════════════════════════ -->
   <section>
     <h2>🤖 AI in Marketing</h2>
 
     <div class="card">
-      <span class="tag tag-hot">Competitive Intel</span>
-      <h3>AI-Generated "Expert Reviews" Flopped with Users and Actual Experts</h3>
-      <p>A platform experiment rolling out AI-generated expert product review summaries quickly ran into a wall: real experts disavowed the summaries, and users didn't trust them. The backlash signals a consistent consumer pattern — AI-labeled content gets higher skepticism than AI-unlabeled content, especially in high-consideration categories. The product feature was quietly pulled back.</p>
-      <p class="why"><strong>Why it matters:</strong> Direct validation for hatchet.cool's human-centric discovery thesis. Brands chasing AI shortcuts in creator discovery and campaign analytics are hitting credibility walls. Platforms that surface authentic, vetted creators win over ones that auto-generate "expert" signals.</p>
-      <a class="read-more" href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" rel="noopener">→ Read more (The Verge)</a>
+      <h3>CNN Builds In-House AI Agent Infrastructure for Programmatic Media Trading</h3>
+      <p>
+        CNN is constructing proprietary AI agent infrastructure to position itself for "agent-to-agent" advertising trades — where AI buyer systems negotiate directly with AI publisher systems. The network plans to test how its properties are "interpreted by LLMs" in Q3, then evaluate budget allocation shifts in Q4.
+      </p>
+      <p class="why"><span>Why it matters:</span> Agent-to-agent media buying is the next disruption to influencer marketing pipelines. If brands delegate spend to AI agents, those agents will need structured, machine-readable creator data — exactly the kind hatchet.cool could provide as an API layer.</p>
+      <a href="https://digiday.com/media/cnn-builds-in-house-agent-infrastructure-as-it-prepares-for-ai-driven-media-trading/" class="source">→ Read more (Digiday)</a>
     </div>
 
     <div class="card">
-      <span class="tag tag-new">AI Governance</span>
-      <h3>Writers Guild Secures Four-Year Deal With Studios Including Expanded AI Protections</h3>
-      <p>The WGA reached a new four-year deal with major studios that includes strengthened language around AI use in scriptwriting. The deal limits studios from using AI-generated content as source material without consent and expands transparency requirements. It sets a precedent other creative labor categories — including influencers and UGC creators — will likely reference in future negotiations.</p>
-      <p class="why"><strong>Why it matters:</strong> As studios and brands push AI into content pipelines, organized labor is setting limits. Creator economy platforms that proactively align with these protections — especially for campaign content creation — will be better positioned for enterprise clients with compliance requirements.</p>
-      <a class="read-more" href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" rel="noopener">→ Read more (The Verge)</a>
+      <h3>Google Vids Adds AI Avatars, Music Generation &amp; Higher-Quality Export</h3>
+      <p>
+        Google's video creation app Vids has shipped a major update: AI-powered avatars for presentation-style videos, music generation via Lyria, video generation via Veo, and higher-quality export. The update positions Google Vids as a direct competitor to tools like HeyGen and Synthesia for AI-generated marketing content.
+      </p>
+      <p class="why"><span>Why it matters:</span> As AI video tools mature, brand-side content production costs collapse — shifting budgets from production to distribution and creator amplification. This strengthens the ROI case for influencer discovery tools that help brands spend smarter on human creators.</p>
+      <a href="https://www.socialmediatoday.com/news/google-vids-adds-new-ai-features/816552/" class="source">→ Read more (Social Media Today)</a>
     </div>
 
     <div class="card">
-      <span class="tag tag-watch">Big Tech</span>
-      <h3>Zuckerberg Building an AI CEO Agent to Help Him Manage Meta</h3>
-      <p>According to the Wall Street Journal, Mark Zuckerberg is developing an internal AI agent to help him run Meta — currently helping him retrieve information faster by bypassing internal org-chart layers. The agent is still in early development but reflects Meta's aggressive push to dogfood AI across every function, including executive decision-making.</p>
-      <p class="why"><strong>Why it matters:</strong> If Meta's leadership is automating executive information flows, it's only a matter of time before this pattern cascades into advertising and marketing decisions at scale. AI-assisted campaign selection and creator discovery at Meta is accelerating — the window for independent platforms to differentiate is narrowing.</p>
-      <a class="read-more" href="https://www.wsj.com/tech/ai/mark-zuckerberg-is-building-an-ai-agent-to-help-him-be-ceo-eddab2d5" target="_blank" rel="noopener">→ Read more (WSJ)</a>
+      <h3>AI Voice Cloning + Copyright Trolls Target Independent Artists — The Murphy Campbell Case</h3>
+      <p>
+        Folk musician Murphy Campbell (NC) discovered AI clones of her voice uploaded to her Spotify profile and fraudulent Content ID claims filed against her YouTube videos through distributor Vydia. The distributor has since released the claims and banned the offending user, but the incident exposes how independent creators without ACR database registrations are vulnerable to exploitation.
+      </p>
+      <p class="why"><span>Why it matters:</span> Creator identity and IP verification is becoming a critical trust signal for marketplaces. Platforms and tools that can verify authentic creator content — and flag clones — will gain a significant edge. A cautionary signal for any creator economy platform operating at scale.</p>
+      <a href="https://www.musicbusinessworldwide.com/a-folk-musician-had-her-voice-cloned-by-ai-and-her-recordings-claimed-by-a-copyright-troll-welcome-to-2026/" class="source">→ Read more (Music Business Worldwide)</a>
     </div>
-
   </section>
 
-  <!-- ===== SECTION 4: M&A ===== -->
+  <!-- ══════════════════════════════════════════════
+       4. M&A ($1–50M RANGE)
+  ═══════════════════════════════════════════════ -->
   <section>
-    <h2>💰 M&amp;A ($1–50M Range)</h2>
+    <h2>💰 M&amp;A &amp; Deals</h2>
 
     <div class="card">
-      <span class="tag tag-new">Acquisition</span>
-      <h3>Apple Quietly Acquires MotionVFX — Creator-Focused Final Cut Pro Plugin Studio</h3>
-      <p>MotionVFX, the developer behind a suite of AI-powered Final Cut Pro plugins (including AI upscaling and auto-captions), announced it is "joining the Apple team." The suite was a subscription-based product used heavily by YouTube creators and video editors. Apple has been expanding its Creator Studio offering and this acquisition fills a clear AI-powered production tooling gap.</p>
-      <p class="why"><strong>Why it matters:</strong> Apple is quietly building a creator production stack — Creator Studio subscription + MotionVFX AI tools + Final Cut Pro. If Apple locks this ecosystem into iCloud/Apple One bundles, it reshapes the creator tool market and strengthens Apple's position as a platform for serious independent video creators.</p>
-      <a class="read-more" href="https://www.theverge.com/creators" target="_blank" rel="noopener">→ Read more (The Verge)</a>
+      <h3>WMG Acquires Revelator — IMPALA Calls It 'Bad News for Artists and Europe's Diversity'</h3>
+      <p>
+        Warner Music Group has acquired Revelator, an independent music distribution and analytics platform, drawing sharp criticism from IMPALA (the European independent music trade body). IMPALA argues the acquisition concentrates distribution and data infrastructure in major-label hands, reducing competition for independent artists across Europe.
+      </p>
+      <p class="why"><span>Why it matters:</span> Distribution and creator analytics consolidation is accelerating in music — a parallel trend to what's happening in gaming and influencer marketing SaaS. When majors own the data layer, independent tools that surface creator insights have a stronger value proposition.</p>
+      <a href="https://www.musicbusinessworldwide.com/impala-was-unhappy-about-umgs-purchase-of-downtown-now-it-says-wmgs-revelator-acquisition-is-bad-news-for-artists-fans-and-europes-diversity/" class="source">→ Read more (Music Business Worldwide)</a>
     </div>
 
     <div class="card">
-      <span class="tag tag-watch">Market Context</span>
-      <h3>AI Data Training Company Mercor Hit by Security Breach — Meta Pauses Work</h3>
-      <p>Mercor, a company that staffs white-collar workers to train AI models (previously profiled by The Verge), was hit by a security breach that exposed AI industry secrets. Meta has paused work with Mercor while OpenAI investigates. Mercor had been a key part of the AI training data supply chain connecting human annotators to frontier model companies.</p>
-      <p class="why"><strong>Why it matters:</strong> Security incidents at AI training data intermediaries have downstream effects on the entire AI services ecosystem. For SaaS companies building on AI foundations, supply chain security is becoming a due-diligence requirement — not just a best practice.</p>
-      <a class="read-more" href="https://www.wired.com/story/meta-pauses-work-with-mercor-after-data-breach-puts-ai-industry-secrets-at-risk/" target="_blank" rel="noopener">→ Read more (Wired)</a>
+      <h3>OpenWav Launches Indie Artist Financing Platform — Backed by Snafu, Wyclef Jean &amp; Jaeson Ma</h3>
+      <p>
+        OpenWav, a direct-to-consumer music service co-founded by Wyclef Jean and Jaeson Ma, has launched a new independent artist financing platform backed by Snafu. The platform offers advances to indie artists against future streaming and touring revenue — a creator economy fintech play targeting the mid-tier music creator.
+      </p>
+      <p class="why"><span>Why it matters:</span> Creator financing is an emerging category (cf. Stir, Creative Juice, Karat). Tracking which creators are securing advances reveals who the market bets on — useful signal for hatchet.cool's creator valuation models.</p>
+      <a href="https://www.musicbusinessworldwide.com/wyclef-jean-and-jaeson-mas-d2c-service-openwav-launches-snafu-backed-indie-artist-financing-platform/" class="source">→ Read more (Music Business Worldwide)</a>
     </div>
 
+    <div class="card">
+      <h3>Krafton, FlyQuest &amp; Arbitrum Invest $3.5M in New MOBA from Indie Studio</h3>
+      <p>
+        An indie gaming studio has secured a $3.5M seed round from PUBG maker Krafton, esports org FlyQuest, and blockchain network Arbitrum to build a new MOBA. The hybrid gaming-esports-web3 investor mix reflects cross-vertical deal activity in gaming at the sub-$10M level.
+      </p>
+      <p class="why"><span>Why it matters:</span> Esports orgs co-investing in games early (as FlyQuest is doing) is a new model for aligning publishing and competitive ecosystems from day one — a structure worth watching as gaming and creator economy intersect.</p>
+      <a href="https://www.gamedeveloper.com/business/krafton-flyquest-arbitrum-invest-3-5m-on-new-moba" class="source">→ Read more (Game Developer)</a>
+    </div>
   </section>
 
-  <!-- ===== SECTION 5: US MARKET ===== -->
+  <!-- ══════════════════════════════════════════════
+       5. US MARKET
+  ═══════════════════════════════════════════════ -->
   <section>
     <h2>🇺🇸 US Market</h2>
 
     <div class="card">
-      <span class="tag tag-hot">Business</span>
-      <h3>Elon Musk Demands SpaceX IPO Advisers Buy Grok Subscriptions</h3>
-      <p>The New York Times reports that Elon Musk is requiring banks, law firms, auditors, and other advisers working on the SpaceX IPO to purchase subscriptions to Grok — his AI product now technically under the SpaceX umbrella following the merger of SpaceX, xAI, and X. It's a brazen attempt to juice Grok's subscription numbers ahead of what would be one of the largest tech IPOs in recent history.</p>
-      <p class="why"><strong>Why it matters:</strong> Musk leveraging a major IPO to drive AI product subscriptions is a new playbook that blurs the lines between corporate governance and platform growth. For the US tech and creator ecosystem, SpaceX's eventual IPO will be a massive capital event — and Grok's positioning as an enterprise tool will affect how X monetizes creator and advertiser tools.</p>
-      <a class="read-more" href="https://www.nytimes.com/2026/04/03/business/spacex-ipo-grok-elon-musk.html" target="_blank" rel="noopener">→ Read more (NYT)</a>
+      <h3>YouTube BrandCast 2026 Confirmed for May — Trevor Noah Hosts, Chappell Roan Performs</h3>
+      <p>
+        YouTube's flagship advertiser event, BrandCast 2026, is scheduled for May and will be hosted by comedian Trevor Noah with a live performance from breakout artist Chappell Roan. BrandCast is where YouTube typically announces major creator monetization and advertising product changes aimed at brand partners.
+      </p>
+      <p class="why"><span>Why it matters:</span> BrandCast is where the creator-to-brand deal landscape gets reset annually. Any announcements about influencer advertising products or creator analytics partnerships will directly affect the competitive environment for tools like hatchet.cool.</p>
+      <a href="https://www.socialmediatoday.com/news/youtubes-brandcast-2026-advertiser-event-scheduled-for-may/816419/" class="source">→ Read more (Social Media Today)</a>
     </div>
 
     <div class="card">
-      <span class="tag tag-watch">Legal</span>
-      <h3>Social Media Trials Signal Big Tech's Latest Reckoning — Two Jury Verdicts Could Shift the Table</h3>
-      <p>Two recent jury verdicts in social media liability cases are being watched closely across the industry. Tech giants have historically weathered congressional and court attacks through sheer resources, but these verdicts suggest juries are less forgiving of platform harm than they used to be. Legal analyst Jay Edelson — who's been filing cases against OpenAI and Google — called it: "Courts are fed up with these companies."</p>
-      <p class="why"><strong>Why it matters:</strong> Platform liability precedents directly affect how much latitude creator economy platforms have around user-generated content, brand safety, and data usage. A shift in jury sentiment could accelerate regulatory pressure on mid-sized platforms — including those in influencer marketing and analytics.</p>
-      <a class="read-more" href="https://www.politico.com/news/2026/03/26/social-media-trials-usher-in-big-techs-latest-moment-of-reckoning-00846388" target="_blank" rel="noopener">→ Read more (Politico)</a>
+      <h3>Nexon Agrees to Publish Overwatch in Korea — Blizzard's Return to a Key Market</h3>
+      <p>
+        Blizzard's Overwatch franchise will return to South Korea via a publishing deal with Nexon, one of the largest gaming companies in the Asia-Pacific region. The deal marks Blizzard/Activision's effort to re-establish its competitive gaming footprint in a market where Overwatch League had significant viewership before the OWL's collapse.
+      </p>
+      <p class="why"><span>Why it matters:</span> Esports IP licensing in Asia is recovering after years of contracting. Overwatch's Korean comeback could re-energize esports brand deal activity in a key market — relevant for anyone tracking esports org health and sponsorship flows.</p>
+      <a href="https://www.gamedeveloper.com/business/nexon-agrees-to-publish-overwatch-in-korea" class="source">→ Read more (Game Developer)</a>
     </div>
 
+    <div class="card">
+      <h3>Meta Pauses Work with AI Data Firm Mercor After Security Breach</h3>
+      <p>
+        Meta has paused all contracts with Mercor, an AI training data company used by Anthropic, OpenAI, and other major AI labs, following a security breach that reportedly exposed sensitive AI industry data. OpenAI is also investigating the incident, according to Wired. Mercor matches professionals with AI companies for data labeling and red-teaming contracts.
+      </p>
+      <p class="why"><span>Why it matters:</span> AI supply chain security is now a board-level issue at the biggest tech companies. Breaches at data contracting firms can expose model training methodologies and competitive intelligence — a growing risk category for AI-native startups.</p>
+      <a href="https://www.socialmediatoday.com/news/meta-pauses-all-contracts-with-mercor-after-breach/816663/" class="source">→ Read more (Social Media Today)</a>
+    </div>
   </section>
 
-  <!-- ===== SECTION 6: SPAIN / EU REGULATION ===== -->
+  <!-- ══════════════════════════════════════════════
+       6. SPAIN / EU REGULATION
+  ═══════════════════════════════════════════════ -->
   <section>
     <h2>🇪🇺 Spain &amp; EU Regulation</h2>
 
     <div class="card">
-      <span class="tag tag-hot">DSA Enforcement</span>
-      <h3>EU Probes Snapchat for Failing to Protect Minors from Grooming and Illegal Goods</h3>
-      <p>The European Commission has opened a formal DSA investigation into Snapchat, citing failures to protect children from grooming, exposure to illegal goods, and inadequate algorithmic recommendation safeguards. The investigation comes amid a broader EU push on child safety enforcement — Snap joins Meta, TikTok, and X under active scrutiny. Potential fines can reach 6% of global annual revenue.</p>
-      <p class="why"><strong>Why it matters:</strong> DSA enforcement is escalating fast — and it's reaching platforms of Snapchat's scale. For any creator economy SaaS operating in the EU, compliance with DSA child-safety and algorithmic transparency provisions is no longer optional. This sets the baseline for what regulators will demand from discovery and analytics platforms.</p>
-      <a class="read-more" href="https://www.politico.eu/article/eu-probes-snapchat-for-failing-to-protect-kids-from-grooming-illegal-goods/" target="_blank" rel="noopener">→ Read more (Politico EU)</a>
+      <h3>EU ePrivacy Derogation Expires — Platforms Can No Longer Scan for CSAM Without Legal Cover</h3>
+      <p>
+        The EU failed to renew the ePrivacy Directive's derogation that allowed platforms like Google, Meta, Microsoft and Snap to scan for child sexual abuse material (CSAM). Without this legal carve-out, scanning is now prohibited under EU privacy law. The four tech giants issued a joint statement calling the lapse an "irresponsible failure" and pledging to continue voluntary protections while lobbying for a new framework.
+      </p>
+      <p class="why"><span>Why it matters:</span> EU regulatory gridlock on child safety creates real-world platform liability exposure. Any creator economy platform with EU users that surfaces UGC now faces heightened legal uncertainty on moderation duties — a compliance risk to factor in when operating in Spain/EU.</p>
+      <a href="https://www.socialmediatoday.com/news/major-social-platforms-issue-joint-warning-about-child-safety-in-eu/816661/" class="source">→ Read more (Social Media Today)</a>
     </div>
 
     <div class="card">
-      <span class="tag tag-new">Regulation</span>
-      <h3>Austria Moves to Ban Social Media for Under-14s — Plans National Law by June</h3>
-      <p>Austria's government announced it will introduce a national social media ban for children under 14 by June 2026, noting that an EU-wide approach would take too long. Austria joins Australia and Norway in this wave of national-level age-gating legislation, with the government explicitly citing mental health research and platform design patterns as justification.</p>
-      <p class="why"><strong>Why it matters:</strong> Age-gating laws at national level are becoming a de facto EU-wide standard, country by country. Platforms that want to operate in Europe need to build age-verification infrastructure now — and creator platforms need to understand how this reshapes their addressable audiences in key markets.</p>
-      <a class="read-more" href="https://www.politico.eu/article/austria-moves-towards-social-media-ban-for-under-14s/" target="_blank" rel="noopener">→ Read more (Politico EU)</a>
+      <h3>EU Social Platforms Face Calls for Clearer Age-Verification Standards</h3>
+      <p>
+        Following the ePrivacy lapse, European regulators and child safety advocates are pressing for harmonized age-verification rules across all platforms — moving beyond voluntary measures toward mandatory technical standards. The current patchwork approach leaves significant gaps between DSA enforcement and practical child protection outcomes.
+      </p>
+      <p class="why"><span>Why it matters:</span> Age verification mandates — if enacted uniformly — would require significant UX and onboarding changes for any platform with EU minors as users. For creator economy tools operating in Spain, DSA compliance overhead is rising.</p>
+      <a href="https://www.socialmediatoday.com/news/authorities-need-to-establish-clearer-rules-on-social-media-age-checking/816664/" class="source">→ Read more (Social Media Today)</a>
     </div>
 
     <div class="card">
-      <span class="tag tag-watch">AI Governance</span>
-      <h3>Dutch Court Bans Grok from Generating Fake Nudes, Threatens €100K Daily Fines</h3>
-      <p>A Dutch court ruled against X's Grok AI — blocking it from generating non-consensual nude images and threatening €100,000-per-day penalties if violations continue. The judge noted it was unclear whether changes Musk's X had made were effective enough. The ruling is one of the first in the EU to hold an AI image generator directly liable under privacy and dignity laws.</p>
-      <p class="why"><strong>Why it matters:</strong> This sets a tangible precedent for AI content liability in the EU — and it's coming from a consumer court, not just a regulator. For any platform handling AI-generated or AI-assisted creator content, ensuring outputs meet EU dignity standards is now a legal requirement, not just a policy choice.</p>
-      <a class="read-more" href="https://www.politico.eu/article/netherlands-grok-x-ban-generative-pictures-penalties/" target="_blank" rel="noopener">→ Read more (Politico EU)</a>
+      <h3>EU Reinforces Carbon Market Stability — But ETS Pressure Adds Costs for Digital Infrastructure</h3>
+      <p>
+        The European Commission announced measures to stabilize the EU Emissions Trading System (ETS), preventing the automatic invalidation of carbon allowances. While not directly a platform regulation story, the ETS changes affect data center and cloud infrastructure costs across the EU — a downstream concern for all digital businesses operating at scale in Europe.
+      </p>
+      <p class="why"><span>Why it matters:</span> EU digital infrastructure costs are partially indexed to carbon compliance. As EU-hosted AI workloads grow, the ETS cost floor becomes a factor in build-vs-AWS decisions for any EU-domiciled tech startup.</p>
+      <a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_26_666" class="source">→ Read more (European Commission)</a>
     </div>
-
   </section>
 
-  <!-- ===== SIGNAL OF THE DAY ===== -->
-  <div class="signal">
-    <div class="signal-label">⚡ Signal of the Day</div>
-    <h2>The "Human-Made" Label Problem Is the Creator Economy's Next Big Fight</h2>
-    <p>Eight separate initiatives are fighting to own the "AI-free" label for creators — and none of them agree on what it means. At the same time, AI-generated expert reviews are flopping with consumers, the WGA is locking in AI protections in multi-year contracts, and platforms from Snapchat to Grok are getting sued or fined over AI content failures. The pattern is clear: the market is hungry for authentic human signal, but the infrastructure to reliably surface and certify it doesn't exist yet. That's the gap hatchet.cool can own — not just discovery, but <em>verified authenticity at scale</em>. The window is open now, before the platforms build it themselves.</p>
+  <!-- ══════════════════════════════════════════════
+       SIGNAL OF THE DAY
+  ═══════════════════════════════════════════════ -->
+  <div class="signal-box">
+    <div class="label">⚡ Signal of the Day</div>
+    <h2>When Publishers Fire AI Teams While Praising AI, the Market Is Ready for Vendors</h2>
+    <p>
+      Take-Two's decision to eliminate its entire in-house AI division — just weeks after its president declared they were "actively embracing" generative AI — reveals a defining tension in the industry: companies want AI's benefits but are shedding the cost of building it themselves. The same pattern is playing out in advertising (CNN building agent infra to replace manual trading) and creator platforms (Google, YouTube, Snap all shipping AI features at pace). The gap between "we believe in AI" and "we'll build AI" is the market opportunity. Tools that plug into existing workflows without requiring a dedicated AI team — like creator intelligence APIs — are positioned exactly right for this moment.
+    </p>
   </div>
 
-</div>
+</main>
 
 <footer>
-  Generated by mpe · <a href="https://aibit.github.io/daily-briefing" target="_blank" rel="noopener">aibit.github.io/daily-briefing</a>
+  Generated by mpe · <a href="https://aibit.github.io/daily-briefing" style="color:#444;">aibit.github.io/daily-briefing</a>
 </footer>
 
 </body>
